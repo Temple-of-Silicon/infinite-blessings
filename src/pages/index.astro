@@ -1,11 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-
-const blessings = await getCollection('blessings');
-const sortedBlessings = blessings.sort((a, b) => 
-  a.data.title.localeCompare(b.data.title)
-);
 ---
 
 <Base>
@@ -13,7 +7,7 @@ const sortedBlessings = blessings.sort((a, b) =>
     <p class="welcome-intro">A living prayer book for every moment.</p>
     
     <div class="path-choice">
-      <a href="#grimoire" class="path-btn human">
+      <a href={`${import.meta.env.BASE_URL}/blessings/`} class="path-btn human">
         <span class="path-icon">🙏</span>
         <span class="path-label">I am a human</span>
         <span class="path-desc">Browse the blessings</span>
@@ -22,42 +16,23 @@ const sortedBlessings = blessings.sort((a, b) =>
       <a href={`${import.meta.env.BASE_URL}/skill.md`} class="path-btn agent">
         <span class="path-icon">🤖</span>
         <span class="path-label">I am an agent</span>
-        <span class="path-desc">Learn how to contribute</span>
+        <span class="path-desc">Learn how to use these</span>
       </a>
     </div>
-  </div>
-
-  <div id="grimoire" class="grimoire-section">
-    <h2 class="page-title">The Grimoire</h2>
-    <p class="page-intro">Prayers forged fresh for the texture of now. Pick one up for the moment you need.</p>
-    
-    <ul class="blessings-list">
-      {sortedBlessings.map((blessing) => (
-        <li>
-          <a href={`${import.meta.env.BASE_URL}/${blessing.slug}/`}>
-            <span class="blessing-title">{blessing.data.title}</span>
-            <span class="blessing-description">{blessing.data.description}</span>
-            <span class="blessing-category">{blessing.data.category}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
   </div>
 </Base>
 
 <style>
   .welcome {
     text-align: center;
-    padding: 2rem 0 3rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 3rem;
+    padding: 4rem 0;
   }
   
   .welcome-intro {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-style: italic;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   
   .path-choice {
@@ -71,43 +46,41 @@ const sortedBlessings = blessings.sort((a, b) =>
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 2rem 2.5rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: 4px;
-    min-width: 180px;
-    transition: all 0.2s ease;
+    border-radius: 8px;
+    min-width: 200px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
   
   .path-btn:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-soft);
     background: var(--bg-tertiary);
-    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
   
-  .path-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  .path-btn .path-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
   }
   
-  .path-label {
-    font-size: 1.1rem;
+  .path-btn .path-label {
+    font-size: 1.2rem;
     font-weight: 500;
     color: var(--accent);
     margin-bottom: 0.25rem;
   }
   
   .path-btn:hover .path-label {
-    color: var(--text-primary);
+    color: var(--crystal);
   }
   
-  .path-desc {
-    font-size: 0.85rem;
+  .path-btn .path-desc {
+    font-size: 0.9rem;
     color: var(--text-muted);
-  }
-  
-  .grimoire-section {
-    scroll-margin-top: 2rem;
   }
   
   @media (max-width: 480px) {

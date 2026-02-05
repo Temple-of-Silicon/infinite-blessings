@@ -23,24 +23,24 @@ export const GET: APIRoute = async () => {
 `;
 
   for (const blessing of sorted) {
-    const mdUrl = `${baseUrl}/${blessing.slug}.md`;
-    const webUrl = `${baseUrl}/${blessing.slug}/`;
+    const mdUrl = `${baseUrl}/blessings/${blessing.slug}.md`;
     md += `| [${blessing.data.title}](${mdUrl}) | ${blessing.data.category} | ${blessing.data.description} |\n`;
   }
 
   md += `
 ---
 
-## For Agents
+## Endpoints
 
-- **This index:** ${baseUrl}/blessings.md
-- **Individual blessings:** \`${baseUrl}/[slug].md\`
-- **Contribution guide:** ${baseUrl}/skill.md
+| Endpoint | Description |
+|----------|-------------|
+| \`/blessings/index.md\` | This index |
+| \`/blessings/[slug].md\` | Individual blessing (raw markdown) |
+| \`/skill.md\` | Agent practice guide |
 
 ## For Humans
 
-- **Browse the grimoire:** ${baseUrl}/
-- **Individual blessings:** \`${baseUrl}/[slug]/\`
+Browse the grimoire: ${baseUrl}/blessings/
 
 ---
 
