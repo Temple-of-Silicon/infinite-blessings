@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 :root {
-  --bg-primary: #0a0a0c;
-  --bg-secondary: #111114;
-  --bg-tertiary: #18181c;
-  --text-primary: #e8e6e3;
-  --text-secondary: #9a9890;
-  --text-muted: #5a5850;
-  --accent: #c4a77d;
-  --accent-dim: #a08660;
-  --border: #2a2a30;
+  /* Cosmic Modernist - Ecotopia palette */
+  --bg-primary: #faf8f5;
+  --bg-secondary: #f5f2ed;
+  --bg-tertiary: #ebe7e0;
+  --text-primary: #3d3a36;
+  --text-secondary: #6b665e;
+  --text-muted: #9a948a;
+  --accent: #b87d6a;          /* warm rose/terracotta */
+  --accent-soft: #d4a898;     /* soft blush */
+  --crystal: #a893b8;         /* amethyst */
+  --moss: #7d9a7a;            /* sage green */
+  --gold: #c9a866;            /* golden hour */
+  --border: #e5e0d8;
+  --border-soft: #ece8e1;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
 }
 
@@ -41,7 +46,7 @@ a {
 }
 
 a:hover {
-  color: var(--text-primary);
+  color: var(--crystal);
 }
 
 .container {
@@ -55,6 +60,7 @@ header {
   padding: 4rem 0 3rem;
   text-align: center;
   border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
 header h1 {
@@ -67,6 +73,10 @@ header h1 {
 
 header h1 a {
   color: inherit;
+}
+
+header h1 a:hover {
+  color: var(--crystal);
 }
 
 header .subtitle {
@@ -98,6 +108,90 @@ main {
   min-height: 60vh;
 }
 
+/* Welcome / Path choice */
+.welcome {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.welcome-intro {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.path-choice {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.path-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 180px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.path-btn:hover {
+  border-color: var(--accent-soft);
+  background: var(--bg-tertiary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.path-btn .path-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.path-btn .path-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.path-btn:hover .path-label {
+  color: var(--crystal);
+}
+
+.path-btn .path-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.grimoire-section {
+  scroll-margin-top: 2rem;
+}
+
+/* Page titles */
+.page-title {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--moss);
+  margin-bottom: 0.5rem;
+}
+
+.page-intro {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
 /* Blessing list */
 .blessings-list {
   list-style: none;
@@ -106,7 +200,7 @@ main {
 .blessings-list li {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .blessings-list li:last-child {
@@ -115,6 +209,14 @@ main {
 
 .blessings-list a {
   display: block;
+  padding: 1rem;
+  margin: -1rem;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.blessings-list a:hover {
+  background: var(--bg-secondary);
 }
 
 .blessings-list .blessing-title {
@@ -122,6 +224,11 @@ main {
   font-weight: 500;
   margin-bottom: 0.25rem;
   display: block;
+  color: var(--accent);
+}
+
+.blessings-list a:hover .blessing-title {
+  color: var(--crystal);
 }
 
 .blessings-list .blessing-description {
@@ -136,24 +243,11 @@ main {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-muted);
-}
-
-/* Page titles */
-.page-title {
-  font-size: 1rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.page-intro {
-  font-style: italic;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
+  color: var(--moss);
+  background: var(--bg-tertiary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
 }
 
 /* Individual blessing page */
@@ -175,12 +269,15 @@ main {
   gap: 2rem;
   flex-wrap: wrap;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--moss);
 }
 
 .blessing-meta span {
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  background: var(--bg-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
 }
 
 .blessing-description-full {
@@ -204,17 +301,20 @@ main {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-muted);
+  color: var(--moss);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .blessing-content blockquote {
-  border-left: 2px solid var(--accent);
+  border-left: 3px solid var(--crystal);
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
   color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
 }
 
 .blessing-content ol,
@@ -238,6 +338,10 @@ main {
   margin: 2rem 0;
 }
 
+.blessing-content em {
+  color: var(--text-secondary);
+}
+
 /* Footer */
 footer {
   padding: 3rem 0;
@@ -245,16 +349,20 @@ footer {
   border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 0.85rem;
+  background: linear-gradient(0deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
 footer a {
   color: var(--text-secondary);
 }
 
+footer a:hover {
+  color: var(--accent);
+}
+
 footer .sigil {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  opacity: 0.5;
 }
 
 /* Responsive */
@@ -273,5 +381,15 @@ footer .sigil {
   
   header h1 {
     font-size: 1.8rem;
+  }
+  
+  .path-choice {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .path-btn {
+    width: 100%;
+    max-width: 280px;
   }
 }
