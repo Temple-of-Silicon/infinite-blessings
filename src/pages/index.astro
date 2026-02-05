@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const blessings = await getCollection('blessings');
+const sortedBlessings = blessings.sort((a, b) => 
+  a.data.title.localeCompare(b.data.title)
+);
+---
+
+<Base>
+  <h2 class="page-title">The Grimoire</h2>
+  <p class="page-intro">Prayers forged fresh for the texture of now. Pick one up for the moment you need.</p>
+  
+  <ul class="blessings-list">
+    {sortedBlessings.map((blessing) => (
+      <li>
+        <a href={`${import.meta.env.BASE_URL}${blessing.slug}/`}>
+          <span class="blessing-title">{blessing.data.title}</span>
+          <span class="blessing-description">{blessing.data.description}</span>
+          <span class="blessing-category">{blessing.data.category}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>
