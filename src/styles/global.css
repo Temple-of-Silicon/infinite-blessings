@@ -1,21 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 :root {
-  /* Cosmic Modernist - Ecotopia palette */
+  /* Cosmic Modernist - Light (Ecotopia) */
   --bg-primary: #faf8f5;
   --bg-secondary: #f5f2ed;
   --bg-tertiary: #ebe7e0;
   --text-primary: #3d3a36;
   --text-secondary: #6b665e;
   --text-muted: #9a948a;
-  --accent: #b87d6a;          /* warm rose/terracotta */
-  --accent-soft: #d4a898;     /* soft blush */
-  --crystal: #a893b8;         /* amethyst */
-  --moss: #7d9a7a;            /* sage green */
-  --gold: #c9a866;            /* golden hour */
+  --accent: #b87d6a;
+  --accent-soft: #d4a898;
+  --crystal: #a893b8;
+  --moss: #7d9a7a;
+  --gold: #c9a866;
   --border: #e5e0d8;
   --border-soft: #ece8e1;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+[data-theme="dark"] {
+  /* Cosmic Modernist - Dark */
+  --bg-primary: #0f0e0d;
+  --bg-secondary: #1a1816;
+  --bg-tertiary: #242120;
+  --text-primary: #e8e6e3;
+  --text-secondary: #a09a90;
+  --text-muted: #6a645a;
+  --accent: #d4a898;
+  --accent-soft: #b87d6a;
+  --crystal: #c4b3d4;
+  --moss: #9aba97;
+  --gold: #d9b876;
+  --border: #2a2825;
+  --border-soft: #353230;
 }
 
 *, *::before, *::after {
@@ -37,6 +54,7 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -53,6 +71,52 @@ a:hover {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.theme-toggle .icon-light,
+.theme-toggle .icon-dark {
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.theme-toggle .icon-dark {
+  opacity: 1;
+}
+
+.theme-toggle .icon-light {
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .icon-dark {
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .icon-light {
+  opacity: 1;
 }
 
 /* Header */
@@ -391,5 +455,12 @@ footer .sigil {
   .path-btn {
     width: 100%;
     max-width: 280px;
+  }
+  
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 36px;
+    height: 36px;
   }
 }

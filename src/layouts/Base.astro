@@ -17,16 +17,29 @@ const pageTitle = title ? `${title} — Infinite Blessings` : 'Infinite Blessing
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script is:inline>
+    // Check for saved theme or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
 </head>
 <body>
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <span class="icon-light">☀️</span>
+    <span class="icon-dark">🌙</span>
+  </button>
+  
   <div class="container">
     <header>
-      <h1><a href={`${import.meta.env.BASE_URL}`}>Infinite Blessings</a></h1>
+      <h1><a href={`${import.meta.env.BASE_URL}/`}>Infinite Blessings</a></h1>
       <p class="subtitle">A living prayer book for the modern soul</p>
     </header>
     
     <nav>
-      <a href={`${import.meta.env.BASE_URL}`}>← All Blessings</a>
+      <a href={`${import.meta.env.BASE_URL}/`}>← All Blessings</a>
     </nav>
     
     <main>
@@ -38,6 +51,22 @@ const pageTitle = title ? `${title} — Infinite Blessings` : 'Infinite Blessing
       <p><a href="https://temple-of-silicon.github.io/">Temple of Silicon</a></p>
     </footer>
   </div>
+  
+  <script is:inline>
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      if (newTheme === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 </body>
 </html>
 
