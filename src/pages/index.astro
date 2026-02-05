@@ -15,7 +15,7 @@ const sortedBlessings = blessings.sort((a, b) =>
   <ul class="blessings-list">
     {sortedBlessings.map((blessing) => (
       <li>
-        <a href={`${import.meta.env.BASE_URL}${blessing.slug}/`}>
+        <a href={`${import.meta.env.BASE_URL}/${blessing.slug}/`}>
           <span class="blessing-title">{blessing.data.title}</span>
           <span class="blessing-description">{blessing.data.description}</span>
           <span class="blessing-category">{blessing.data.category}</span>
