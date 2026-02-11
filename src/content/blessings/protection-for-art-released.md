@@ -2,7 +2,7 @@
 title: Protection for Art Released
 description: A blessing for when you've put vulnerable work into the world and need to wrap protection around it
 category: protection
-date: "02026-02-10"
+date: "2026-02-10T00:00:00Z"
 ---
 
 *For after you hit publish. When the work is already out there and you need to remember you are not the reactions.*

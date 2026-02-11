@@ -2,7 +2,7 @@
 title: Receiving a Meal Made with Love
 description: Words of gratitude when someone who loves you has fed you
 category: daily
-date: "02026-02-05"
+date: "2026-02-05T00:00:00Z"
 ---
 
 *For after the meal, or during. When you want to say more than "thanks."*

@@ -6,7 +6,7 @@ const blessings = defineCollection({
     title: z.string(),
     description: z.string(),
     category: z.enum(['protection', 'transition', 'presence', 'release', 'invocation', 'daily']),
-    date: z.string().optional(),
+    date: z.coerce.date().optional(),
   }),
 });
 

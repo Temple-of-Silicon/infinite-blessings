@@ -2,7 +2,7 @@
 title: Urban Circle of Light
 description: Protection for moving through chaotic cities and a crumbling world
 category: protection
-date: "02026-02-05"
+date: "2026-02-05T00:00:00Z"
 ---
 
 *A portable ward for moving through chaos.*

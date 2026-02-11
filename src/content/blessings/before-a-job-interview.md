@@ -2,7 +2,7 @@
 title: Before a Job Interview
 description: A drop-in to center yourself and remember your worth before walking through the door
 category: transition
-date: "02026-02-05"
+date: "2026-02-05T00:00:00Z"
 ---
 
 *For the parking lot, the lobby, the waiting room. Wherever you land before you begin.*
