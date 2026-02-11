@@ -1,7 +1,7 @@
 ---
 title: Protection for Art Released
 description: A blessing for when you've put vulnerable work into the world and need to wrap protection around it
-category: creative
+category: protection
 date: "02026-02-10"
 ---
 
